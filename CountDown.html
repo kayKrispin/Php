@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CountDown</title>
+  </head>
+  <body>
+    <div>
+    <div class='bgimg'>
+      <div class =" middle">
+    <h1>COMING SOON</h1>
+      <hr>
+    <p id ='demo'></p>
+  </div>
+  </div>
+</div>
+  </body>
+</html>
+<style>
+  body,html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url(bg3.jpg);
+  background-repeat: no-repeat;
+    background-size: cover;
+  position: relative;
+  color: #fff;
+  }
+  .middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  h1{
+    font-size: 40px;
+    letter-spacing: 30px;
+    font-weight: 100;
+  }
+#demo{
+  word-spacing: 50px;
+  font-weight: lighter;
+
+  font-size: 40px;
+}
+hr{
+  margin: auto;
+  width: 80%;
+  border: 1.5px solid #fff;
+}
+</style>
+
+
+<script type="text/javascript">
+      var arrivedDate = new Date('June 30,2018 00:00:00').getTime();
+
+      var countDown = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = arrivedDate - now;
+        var days = Math.floor(distance / (1000*60*60*24));
+        var hours = Math.floor(distance %(1000*60*60*24) /(1000*60*60));
+        var minutes = Math.floor(distance %(1000*60*60) /(1000*60));
+        var seconds = Math.floor(distance %(1000*60) /1000);
+
+        document.getElementById('demo').innerHTML = days + 'd '  + hours + 'h ' + minutes + 'm ' + seconds +'s ';
+
+        if(distance<0){
+          clearInterval(countDown);
+          document.getElementById('demo').innerHTML = 'EXPIRED';
+        }
+      },1000)
+</script>
